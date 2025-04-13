@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://yl8rv7hisk30"]
+
+[ext_resource type="Texture2D" uid="uid://dawhjsgdy3irk" path="res://sprites/zombie.png" id="1"]
+[ext_resource type="Script" path="res://scripts/zombie.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b4fprdxssos6a" path="res://animations/bloodHit/bloodHit7.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://840egwljyj37" path="res://animations/bloodHit/bloodHit4.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bgc3nb6ykbpvp" path="res://animations/bloodHit/bloodHit6.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b7j8c35foo1bv" path="res://animations/bloodHit/bloodHit3.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bsblsumsnexx4" path="res://animations/bloodHit/bloodHit1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b2bh6f6nmit3r" path="res://animations/bloodHit/bloodHit2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://cgpj3vwsnxca5" path="res://animations/bloodHit/bloodHit5.png" id="9"]
+[ext_resource type="Theme" uid="uid://cib65ndgypq6d" path="res://styles/progressBarTheme.tres" id="10"]
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 35.0
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"bloodHit",
+"speed": 5.0
+}]
+
+[node name="zombie" type="CharacterBody2D"]
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("3")
+
+[node name="hitboxArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitbox" type="CollisionPolygon2D" parent="hitboxArea2D"]
+position = Vector2(-15, -1)
+polygon = PackedVector2Array(-18, 1, -15, -9, -4, -28, 22, -30, 35, -23, 41, -19, 48, -13, 48, -8, 36, -3, 30, -8, 31, -12, 28, -16, 19, -17, 19, 22, 31, 17, 36, 11, 41, 9, 47, 14, 47, 18, 44, 22, 41, 23, 23, 32, 11, 32, -7, 23)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(40, 0)
+
+[node name="bloodHitAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-17, 0)
+rotation = -3.14159
+sprite_frames = SubResource("2")
+animation = &"bloodHit"
+speed_scale = 10.0
+
+[node name="healthBarNode" type="Node" parent="."]
+
+[node name="Node2D" type="Node2D" parent="healthBarNode"]
+
+[node name="healthBar" type="ProgressBar" parent="healthBarNode/Node2D"]
+visible = false
+offset_left = -32.0
+offset_top = -38.0
+offset_right = 32.0
+offset_bottom = -34.0
+theme = ExtResource("10")
+max_value = 20.0
+value = 20.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../healthBarNode/Node2D")
+update_rotation = false
+update_scale = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="frontRay" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="leftRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rightRay" type="RayCast2D" parent="."]
+collision_mask = 4
+collide_with_areas = true

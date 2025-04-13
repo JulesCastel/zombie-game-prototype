@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvp5df88bctju"]
+
+[ext_resource type="Script" path="res://scripts/pauseMenu.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cjf50ixwfxiee" path="res://sounds/menu sounds/pausedSound.ogg" id="2_ml15e"]
+[ext_resource type="AudioStream" uid="uid://de8i5gdkw4kds" path="res://sounds/menu sounds/unpausedSound.ogg" id="3_5ww2t"]
+[ext_resource type="AudioStream" uid="uid://bul37envnr6lc" path="res://sounds/menu sounds/menuSelect.ogg" id="4_twtja"]
+[ext_resource type="AudioStream" uid="uid://cr4c5urh7yh3a" path="res://sounds/menu sounds/menuHover.ogg" id="5_4ksbo"]
+[ext_resource type="AudioStream" uid="uid://4hkv4gnh1vkg" path="res://sounds/menu sounds/menuTickSound.ogg" id="6_uuagc"]
+[ext_resource type="AudioStream" uid="uid://b4v1cpfx3tkd8" path="res://sounds/menu sounds/gunshot.ogg" id="7_4nj6s"]
+[ext_resource type="AudioStream" uid="uid://cv5aj024aenwm" path="res://sounds/menu sounds/pauseMenuSong.ogg" id="8_y31kn"]
+
+[node name="pauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.211765, 0.211765, 0.211765, 0.498039)
+
+[node name="CenterContainer" type="CenterContainer" parent="background"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/CenterContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pausedLabel" type="Label" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused
+"
+
+[node name="Control" type="Control" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="resumeButton" type="Button" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../quitButton")
+focus_neighbor_bottom = NodePath("../optionButton")
+text = "Resume"
+
+[node name="Control3" type="Control" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="optionButton" type="Button" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../resumeButton")
+focus_neighbor_bottom = NodePath("../quitButton")
+text = "Options"
+
+[node name="Control4" type="Control" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="quitButton" type="Button" parent="background/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../optionButton")
+focus_neighbor_bottom = NodePath("../resumeButton")
+text = "Quit"
+
+[node name="settingsBackground" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.211765, 0.211765, 0.211765, 0.498039)
+
+[node name="settingsContainer" type="CenterContainer" parent="settingsBackground"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settingsBackground/settingsContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="settingsLabel" type="Label" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="masterLabel" type="Label" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master volume:"
+
+[node name="masterSlider" type="HSlider" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound effects volume:"
+
+[node name="SFXSlider" type="HSlider" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="menuSoundsLabel" type="Label" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Menu sounds volume:"
+
+[node name="menuSoundsSlider" type="HSlider" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="musicLabel" type="Label" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music volume:"
+
+[node name="musicSlider" type="HSlider" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Control" type="Control" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="backButton" type="Button" parent="settingsBackground/settingsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="pausedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ml15e")
+mix_target = 2
+bus = &"menu sounds"
+
+[node name="unpausedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5ww2t")
+mix_target = 2
+bus = &"menu sounds"
+
+[node name="menuSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_twtja")
+volume_db = -3.0
+mix_target = 2
+bus = &"menu sounds"
+
+[node name="menuHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4ksbo")
+mix_target = 2
+bus = &"menu sounds"
+
+[node name="menuTickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uuagc")
+mix_target = 2
+bus = &"menu sounds"
+
+[node name="gunShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4nj6s")
+pitch_scale = 0.87
+mix_target = 2
+bus = &"player sounds"
+
+[node name="pauseMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_y31kn")
+volume_db = -8.0
+bus = &"music"
+
+[connection signal="mouse_entered" from="background/CenterContainer/VBoxContainer/resumeButton" to="." method="_on_resumeButton_mouse_entered"]
+[connection signal="pressed" from="background/CenterContainer/VBoxContainer/resumeButton" to="." method="_on_resumeButton_pressed"]
+[connection signal="mouse_entered" from="background/CenterContainer/VBoxContainer/optionButton" to="." method="_on_optionButton_mouse_entered"]
+[connection signal="pressed" from="background/CenterContainer/VBoxContainer/optionButton" to="." method="_on_optionButton_pressed"]
+[connection signal="mouse_entered" from="background/CenterContainer/VBoxContainer/quitButton" to="." method="_on_quitButton_mouse_entered"]
+[connection signal="pressed" from="background/CenterContainer/VBoxContainer/quitButton" to="." method="_on_quitButton_pressed"]
+[connection signal="value_changed" from="settingsBackground/settingsContainer/VBoxContainer/masterSlider" to="." method="_on_masterSlider_value_changed"]
+[connection signal="value_changed" from="settingsBackground/settingsContainer/VBoxContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="value_changed" from="settingsBackground/settingsContainer/VBoxContainer/menuSoundsSlider" to="." method="_on_menuSoundsSlider_value_changed"]
+[connection signal="mouse_entered" from="settingsBackground/settingsContainer/VBoxContainer/backButton" to="." method="_on_backButton_mouse_entered"]
+[connection signal="pressed" from="settingsBackground/settingsContainer/VBoxContainer/backButton" to="." method="_on_backButton_pressed"]

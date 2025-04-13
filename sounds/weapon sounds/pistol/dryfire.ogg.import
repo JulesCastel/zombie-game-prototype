@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7xxwxahxm21q"
+path="res://.godot/imported/dryfire.ogg-c23f1a4caeb58a9f332b637de4e6d8d9.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/weapon sounds/pistol/dryfire.ogg"
+dest_files=["res://.godot/imported/dryfire.ogg-c23f1a4caeb58a9f332b637de4e6d8d9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

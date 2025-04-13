@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://de8i5gdkw4kds"
+path="res://.godot/imported/unpausedSound.ogg-e849d69a28a2f340147715ce86d59ee9.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/menu sounds/unpausedSound.ogg"
+dest_files=["res://.godot/imported/unpausedSound.ogg-e849d69a28a2f340147715ce86d59ee9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

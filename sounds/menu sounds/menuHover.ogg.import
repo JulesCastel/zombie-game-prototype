@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cr4c5urh7yh3a"
+path="res://.godot/imported/menuHover.ogg-788db763536057a37bdbdbfe165ae0e7.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/menu sounds/menuHover.ogg"
+dest_files=["res://.godot/imported/menuHover.ogg-788db763536057a37bdbdbfe165ae0e7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

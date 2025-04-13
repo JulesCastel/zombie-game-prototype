@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjf50ixwfxiee"
+path="res://.godot/imported/pausedSound.ogg-8cb2c70bd25a4ce0857b900ef7f0f9aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/menu sounds/pausedSound.ogg"
+dest_files=["res://.godot/imported/pausedSound.ogg-8cb2c70bd25a4ce0857b900ef7f0f9aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

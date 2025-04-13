@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cyrgaqlb4lwdl"
+path="res://.godot/imported/mainMenuMusic.ogg-53d19fae19bea3523e5ed486a43e0155.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/menu sounds/mainMenuMusic.ogg"
+dest_files=["res://.godot/imported/mainMenuMusic.ogg-53d19fae19bea3523e5ed486a43e0155.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
